@@ -1,0 +1,16 @@
+---
+# ALL VARIABLES RELATED TO UBUNTU / DEBIAN GOES IN HERE
+
+admin_tools:
+  - "jq"
+  - "zip"
+  - "nnn"
+  - "tmux"
+  - "lnav"
+  - "htop"
+  - "awscli"
+  - "httpie"
+
+server_user: "ubuntu"
+server_home: "/home/{{ server_user }}"
+server_group: "{{ server_user }}"

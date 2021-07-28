@@ -1,0 +1,6 @@
+# PLAYBOOK TO PROVISION AN AMI
+
+- hosts: all
+  become: true
+  roles:
+    - tech_int

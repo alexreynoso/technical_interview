@@ -1,0 +1,14 @@
+---
+- name: Prepare
+  hosts: all
+  become: "yes"
+  tasks:
+    - name: Copy dns config box
+      copy:
+        src: "01-netcfg.yaml"
+        dest: "/etc/netplan/01-netcfg.yaml"
+        mode: "0644"
+      register: "result"
+    - name: Apply dns config
+      when: "result is succeeded"
+      shell: "netplan apply && echo SUCCESS"

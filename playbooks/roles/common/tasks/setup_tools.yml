@@ -1,0 +1,18 @@
+---
+# USEFUL ADMINISTRATION TOOLS TO TROUBLESHOOT ISSUES
+
+- name: Install better admin tools via apt
+  when: ansible_distribution == "Ubuntu"
+  apt:
+    pkg: "{{ admin_tools }}"
+  until: "result is not failed"
+  delay: 5
+  retries: 5
+  register: "result"
+
+- name: Install better admin tools via snap
+  when: ansible_distribution == "Ubuntu"
+  snap:
+    name: "yq"
+    state: "present"
+    classic: "yes"

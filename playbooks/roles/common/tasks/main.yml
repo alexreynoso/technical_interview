@@ -1,0 +1,28 @@
+---
+# ALL SERVER UPDATES AND UPGRADES GOES IN HERE
+
+- name: Check playbook settings
+  debug:
+    msg:
+      - "SERVER DISTRO       = {{ ansible_distribution }}"
+      - "SERVER RELEASE      = {{ ansible_distribution_release }}"
+      - "SERVER VERSION      = {{ ansible_distribution_version }}"
+      - "PYTHON VERSION      = {{ ansible_python_version }}"
+      - "ANSIBLE VERSION     = {{ ansible_version.full }}"
+      - "PYTHON EXECUTABLE   = {{ ansible_python.executable }}"
+
+- name: Import ubuntu variables
+  include_vars:
+    file: "vars_{{ ansible_distribution | lower  }}.yml"
+
+- name: Setup upgrade system
+  import_tasks: setup_upgrade.yml
+
+- name: Setup open ssh server
+  import_tasks: setup_ssh.yml
+
+- name: Setup open ssm server
+  import_tasks: setup_ssm.yml
+
+- name: Setup server administration tools
+  import_tasks: setup_tools.yml

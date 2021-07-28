@@ -1,0 +1,10 @@
+---
+# AWS SSM AGENT FOR AUTO-PATCHING AND SSH
+
+- name: Install aws ssm agent
+  when: ansible_distribution == "Ubuntu"
+  snap:
+    name: "amazon-ssm-agent"
+    state: "present"
+    classic: "yes"
+  notify: "Start ssm service"

@@ -1,0 +1,50 @@
+---
+# THE ARGUMENTS TO RUN MOLECULE TESTS
+
+lint: |
+  flake8
+  yamllint .
+  codespell --skip='*.pyc' .
+  ansible-lint --exclude ../common
+
+driver:
+  name: "vagrant"
+
+verifier:
+  name: "testinfra"
+
+platforms:
+  - name: "common"
+    box: "bento/ubuntu-20.04"
+    instance_raw_config_args:
+      - "vm.network 'forwarded_port', guest: 80, host: 80"
+    provider_raw_config_args:
+      - "customize ['modifyvm',:id,'--uartmode1','disconnected']"
+
+providers:
+  - name: "virtualbox"
+    type: "virtualbox"
+    options:
+      cpus: 2
+      memory: 2048
+
+dependency:
+  name: "galaxy"
+
+provisioner:
+  name: "ansible"
+
+scenario:
+  name: "default"
+  test_sequence:
+    - lint
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - side_effect
+    - verify
+    - cleanup
+    - destroy

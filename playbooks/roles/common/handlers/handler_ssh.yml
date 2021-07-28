@@ -1,0 +1,9 @@
+---
+# ALL OPEN SSH SERVICES CONFIGURATION GOES IN HERE
+
+- name: Start openssh service
+  systemd:
+    name: "sshd"
+    state: "started"
+    enabled: "yes"
+    daemon_reload: "yes"

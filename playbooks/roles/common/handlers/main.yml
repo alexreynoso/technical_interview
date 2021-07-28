@@ -1,0 +1,8 @@
+---
+# ALL HANDLERS GO IN HERE
+
+- name: Start ssh handler
+  import_tasks: handler_ssh.yml
+
+- name: Start ssm handler
+  import_tasks: handler_ssm.yml

@@ -1,0 +1,17 @@
+---
+# ALL ROLE INFORMATION GOES IN HERE
+
+galaxy_info:
+  author: "Commercial Release Team"
+  company: "AstraZeneca"
+  license: "Apache-2.0"
+  role_name: "common"
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "focal"   # 20.04
+        - "bionic"  # 18.04
+  description: "role to install common tooling on an ec2 server"
+  galaxy_tags: []
+  min_ansible_version: "2.1"
+dependencies: []

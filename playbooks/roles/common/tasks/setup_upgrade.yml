@@ -1,0 +1,14 @@
+---
+# ALL UPDATE AND UPGRADE CONFIGURATIONS GOES IN HERE
+
+- name: Update and upgrade apt packages
+  when: ansible_distribution == "Ubuntu"
+  become: true
+  apt:
+    upgrade: "yes"
+    update_cache: "yes"
+    cache_valid_time: 86400  # 1 day
+  until: "result is not failed"
+  delay: 5
+  retries: 5
+  register: "result"

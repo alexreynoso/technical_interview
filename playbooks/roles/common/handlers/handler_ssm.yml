@@ -1,0 +1,10 @@
+---
+# ALL AWS SSM SERVICES GO IN HERE
+
+- name: Start ssm service
+  debugger: "on_failed"
+  systemd:
+    name: "snap.amazon-ssm-agent.amazon-ssm-agent.service"
+    state: "restarted"
+    enabled: "yes"
+    daemon_reload: "yes"

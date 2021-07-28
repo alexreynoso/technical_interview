@@ -1,0 +1,16 @@
+# ALL ROLE INFORMATION GOES IN HERE
+
+galaxy_info:
+  author: "Alejandro Reynoso"
+  company: "EPAM"
+  license: "Apache-2.0"
+  role_name: "tech_int"
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "focal"
+  description: "Role for technical interview"
+  galaxy_tags: []
+  min_ansible_version: "2.1"
+dependencies:
+  - name: "common"

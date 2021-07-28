@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  become: "yes"
+  become_user: "root"
+  tasks:
+    - name: "include tech_int"
+      include_role:
+        name: "tech_int"
