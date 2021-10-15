@@ -1,0 +1,32 @@
+----
+# tasks file for jenkins
+- name: add jenkins key
+  apt_key:
+    state: present
+    url: "{{ jenkins_key_rpmU }}"
+
+- name: "Set EPEL yum repository"
+
+
+- name: "Install Java and Jenkins"
+  apt:
+      name: "{{ item.value.name }}"
+      state: present
+  loop:
+      "{{ lookup('dict',softwaresU) }}"
+
+- name: "Starting jenkins"
+  service:
+      name: "jenkins"
+      state: started
+      enabled: yes
+
+- name: init password jenkin
+  shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+  changed_when: false
+  register: result
+
+- name: print init password jenkins
+  debug:
+    var: result.stdout
+

@@ -1,0 +1,3 @@
+- name: using UBUNTU file
+  include_tasks: setup_jenkins.yml
+  when: ansible_distribution == "Ubuntu"

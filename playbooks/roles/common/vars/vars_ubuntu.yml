@@ -10,6 +10,7 @@ admin_tools:
   - "htop"
   - "awscli"
   - "httpie"
+  - "wget"
 
 server_user: "ubuntu"
 server_home: "/home/{{ server_user }}"

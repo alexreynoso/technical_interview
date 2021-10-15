@@ -15,17 +15,17 @@ data "aws_availability_zones" "current" {
 data "aws_caller_identity" "current" {}
 
 # https://www.terraform.io/docs/providers/aws/r/instance.html
-data "aws_ami" "this" {
-  owners      = [local.account_id]
-  most_recent = true
-  filter {  # make sure to match the ami created by packer
-    name   = "name"
-    values = [
-      format(
-        "%s-%s-%s",
-        local.region,
-        "technical-inte",
-        lower(var.distro))
-    ]
-  }
-}
+#data "aws_ami" "this" {
+#  owners      = [local.account_id]
+#  most_recent = true
+#  filter {  # make sure to match the ami created by packer
+#    name   = "name"
+#    values = [
+#      format(
+#        "%s-%s-%s",
+#        local.region,
+#        "technical-inte",
+#        lower(var.distro))
+#    ]
+#  }
+#}

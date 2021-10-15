@@ -19,6 +19,16 @@ resource "aws_security_group_rule" "ingress_80" {
   description       = "EC2 Ingress rule for all access"
 }
 
+resource "aws_security_group_rule" "ingress_8080" {
+  type              = "ingress"
+  from_port         = 8080
+  to_port           = 8080
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.this.id
+  description       = "EC2 Ingress rule for all access"
+}
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule
 resource "aws_security_group_rule" "egress" {
   type              = "egress"
