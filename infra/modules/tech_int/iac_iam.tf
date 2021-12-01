@@ -31,7 +31,8 @@ resource "aws_iam_user_policy" "this" {
         "s3:*",
         "ssm:*",
         "ec2:DescribeInstances",
-        "ec2-instance-connect:SendSSHPublicKey"
+        "ec2-instance-connect:SendSSHPublicKey",
+        "dynamodb:*"
       ],
       "Effect": "Allow",
       "Resource": "*"

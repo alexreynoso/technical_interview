@@ -9,16 +9,6 @@ tags              = {
   }
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eip
-resource "aws_eip" "this" {
-  vpc               = true
-  network_interface = aws_network_interface.this.id
-
-  tags              = {
-    Name = "Technical interview EIP"
-  }
-}
-
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "this" {
   ami                         = var.ami
